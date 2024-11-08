@@ -1,0 +1,265 @@
+{% extends "mainHTML/reUseCode.html" %} {% load static %} {% block body %}
+
+<!-- breadcrumb area start -->
+<div class="breadcrumb-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="breadcrumb-wrap">
+          <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Registration
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- breadcrumb area end -->
+
+<!-- login register wrapper start -->
+<div class="login-register-wrapper">
+  <div class="container">
+    <div class="member-area-from-wrap">
+      <div class="row">
+        <!-- Login Content Start -->
+        {% comment %}
+        <div class="col-lg-6">
+          <div class="login-reg-form-wrap pr-lg-50">
+            <h2>Sign In</h2>
+            <form action="#" method="post">
+              <div class="single-input-item">
+                <input type="email" placeholder="Email or Username" required />
+              </div>
+              <div class="single-input-item">
+                <input
+                  type="password"
+                  placeholder="Enter your Password"
+                  required
+                />
+              </div>
+              <div class="single-input-item">
+                <div
+                  class="login-reg-form-meta d-flex align-items-center justify-content-between"
+                >
+                  <div class="remember-meta">
+                    <div class="custom-control custom-checkbox">
+                      <input
+                        type="checkbox"
+                        class="custom-control-input"
+                        id="rememberMe"
+                      />
+                      <label class="custom-control-label" for="rememberMe"
+                        >Remember Me</label
+                      >
+                    </div>
+                  </div>
+                  <a href="#" class="forget-pwd">Forget Password?</a>
+                </div>
+              </div>
+              <div class="single-input-item">
+                <button class="sqr-btn">Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        {% endcomment %}
+        <!-- Login Content End -->
+        <div class="col-lg-2"></div>
+
+        <!-- Register Content Start -->
+        <div class="col-lg-8">
+          <div class="login-reg-form-wrap mt-md-34 mt-sm-34">
+            <center><h2>Registration Form</h2></center>
+
+            {% comment %} {% if messages %} {% for message in messages %}
+
+            <div
+              class="alert alert-{{message.tags}} alert-dismissible fade show"
+              role="alert"
+            >
+              <strong>{{message}}</strong>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+            {% endfor %} {% endif %} {% endcomment %} {% for ans in messages %}
+
+            <div
+              id="myDiv"
+              class="alert alert-{{ans.tags}}"
+              style="position: relative"
+            >
+              <strong> {{ans}}</strong>
+              <button
+                style="
+                  border: none;
+                  font-size: 25px;
+                  position: absolute;
+                  right: 5px;
+                  top: 5px;
+                  background: none;
+                "
+                onclick="document.getElementById('myDiv').style.display = 'none';"
+              >
+                ×
+              </button>
+            </div>
+
+            {% endfor %}
+
+            <form
+              action="registration"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              {% csrf_token %} {% comment %}
+              <div class="single-input-item">
+                <input type="text" placeholder="Full Name" name="name" />
+              </div>
+              {% endcomment %}
+
+              <div class="single-input-item">
+                <input
+                  type="email"
+                  placeholder="Enter your Email"
+                  name="email"
+                />
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="single-input-item">
+                    <input
+                      type="password"
+                      placeholder="Enter your Password"
+                      name="password"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="single-input-item">
+                    <input
+                      type="password"
+                      placeholder="Conform Password"
+                      name="conformPassword"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {% comment %}
+              <div class="single-input-item">
+                <input
+                  type="text"
+                  placeholder="Enter Mobile No."
+                  name="mobileno"
+                />
+              </div>
+              {% endcomment %} {% comment %}
+              <div class="single-input-item">
+                <input type="file" name="image" />
+              </div>
+              {% endcomment %} {% comment %}
+              <div class="single-input-item">
+                <div class="login-reg-form-meta">
+                  <div class="remember-meta">
+                    <div class="custom-control custom-checkbox">
+                      <input
+                        type="checkbox"
+                        class="custom-control-input"
+                        id="subnewsletter"
+                      />
+                      <label class="custom-control-label" for="subnewsletter"
+                        >Subscribe Our Newsletter</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endcomment %}
+
+              <center>
+                <div class="single-input-item">
+                  <input class="sqr-btn" type="submit" value="Register" />
+                </div>
+              </center>
+            </form>
+          </div>
+        </div>
+        <!-- Register Content End -->
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- login register wrapper end -->
+
+<!-- brand area start -->
+<div class="brand-area pt-34 pb-30">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-title mb-30">
+          <div class="title-icon">
+            <i class="fa fa-crop"></i>
+          </div>
+          <h3>Popular Brand</h3>
+        </div>
+        <!-- section title end -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="brand-active slick-padding slick-arrow-style">
+          <div class="brand-item text-center">
+            <a href="#"
+              ><img src="{% static 'img/brand/br1.png' %}" alt=""
+            /></a>
+          </div>
+          <div class="brand-item text-center">
+            <a href="#"
+              ><img src="{% static 'img/brand/br2.png' %}" alt=""
+            /></a>
+          </div>
+          <div class="brand-item text-center">
+            <a href="#"
+              ><img src="{% static 'img/brand/br3.png' %}" alt=""
+            /></a>
+          </div>
+          <div class="brand-item text-center">
+            <a href="#"
+              ><img src="{% static 'img/brand/br4.png' %}" alt=""
+            /></a>
+          </div>
+          <div class="brand-item text-center">
+            <a href="#"
+              ><img src="{% static 'img/brand/br5.png' %}" alt=""
+            /></a>
+          </div>
+          <div class="brand-item text-center">
+            <a href="#"
+              ><img src="{% static 'img/brand/br6.png' %}" alt=""
+            /></a>
+          </div>
+          <div class="brand-item text-center">
+            <a href="#"
+              ><img src="{% static 'img/brand/br4.png' %}" alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- brand area end -->
+
+{% endblock body %}
